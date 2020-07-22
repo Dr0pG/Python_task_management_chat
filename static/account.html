@@ -1,0 +1,69 @@
+<div class="authentication account">
+    <div class="form-container">
+        <form class="form-account" action="">
+            <label for="email">Email</label>
+            <input type="email" name="email">
+            <label for="password">New Password</label>
+            <input type="password" name="password">
+            <label for="confirm_password">Confirm New Password</label>
+            <input type="password" name="confirm_password">
+            <input type="submit" onclick="updateUser()" value="Update">
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('form').submit(function (e) {
+            e.preventDefault();
+        });
+    })
+
+    loadUser();
+
+    function loadUser() {
+        var req = new XMLHttpRequest();
+        req.open("GET", "/api/user/");
+        req.setRequestHeader('Content-type', 'application/json');
+        req.onreadystatechange = function () {
+            if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                $('input[name=email]').val(JSON.parse(this.responseText).email);
+            }
+        }
+        req.send();
+    }
+
+    function updateUser() {
+        var req = new XMLHttpRequest();
+        req.open("PUT", "/api/user/");
+        req.setRequestHeader('Content-type', 'application/json');
+        let email = $('input[name=email]').val();
+        let password = $('input[name=password]').val();
+        let confirmPassword = $('input[name=confirm_password]').val();
+
+        if (!email) {
+            return;
+        }
+
+        if (password && password != confirmPassword) {
+            alert("Passwords don't match");
+            return;
+        }
+
+        let params;
+        if (password) {
+            params = JSON.stringify({
+                email: email,
+                password: password
+            });
+        } else {
+            params = JSON.stringify({
+                email: email,
+            });
+        }
+        alert("Data updated successfully!");
+        console.log(params);
+        req.send(params);
+
+    }
+</script>

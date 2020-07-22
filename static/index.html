@@ -1,0 +1,58 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>TaskList</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body>
+    <div class="top-menu">
+        <div class="logo">
+            <img src="/static/logo.png" alt="Dog">
+        </div>
+        <nav class="menu">
+        </nav>
+    </div>
+    <div id="container">
+        <div class="authentication">
+            <div class="form-container">
+                <form class="form-register" action="">
+                    <label for="email">Email</label>
+                    <input name="email" type="email">
+                    <label for="username">Username</label>
+                    <input name="username" type="text">
+                    <label for="password">Password</label>
+                    <input name="password" type="password">
+                    <label for="confirm_password">Confirm Password</label>
+                    <input name="confirm_password" type="password">
+                    <input type="submit" value="Signup" onclick="register()">
+                </form>
+            </div>
+            <div class="form-container">
+                <form class="form-login" action="">
+                    <label for="username">Username</label>
+                    <input name="username" type="text">
+                    <label for="password">Password</label>
+                    <input name="password" type="password">
+                    <input type="submit" value="Login" onclick="login()">
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/static/script.js" defer></script>
+    <script type="text/javascript" src="/static/features.js" defer></script>
+    <script type="text/javascript" src="/static/chat.js" defer></script>
+    <script type="text/javascript" src="/static/triggers.js" defer></script>
+</body>
+<script>
+    $(document).ready(function () {
+        $('form').submit(function (e) {
+            e.preventDefault();
+        });
+    })
+</script>
+</html>

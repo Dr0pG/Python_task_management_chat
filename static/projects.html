@@ -1,0 +1,27 @@
+<div id="project-container">
+    <div class="project-creator">
+        <input type="text" class="input--project-name" placeholder="New Project">
+        <i id="newProject" class="material-icons">add</i>
+    </div>
+    <div class="project-viewer"></div>
+</div>
+<div id="chat">
+    <div class="chat-header">
+        <div class="chat-title">Project</div>
+        <div class="chat-option">
+            <i class="material-icons chat-close">close</i>
+        </div>
+    </div>
+    <div class="chat-container">
+        <div class="chat-messages"></div>
+        <div class="chat-input">
+            <input type="text" name="message">
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        loadProjects();
+    })
+</script>
